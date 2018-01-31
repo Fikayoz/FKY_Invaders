@@ -94,11 +94,15 @@ public class Alien : MonoBehaviour
         while (true) {
             if (spriteRenderer.sprite == startingImage) {
                 spriteRenderer.sprite = altImage;
-                SoundManager.Instance.PlayOneShot(SoundManager.Instance.alienBuzz1);
+                if (SoundManager.Instance) {
+                    SoundManager.Instance.PlayOneShot(SoundManager.Instance.alienBuzz1);
+                }
             }
             else {
                 spriteRenderer.sprite = startingImage;
-                SoundManager.Instance.PlayOneShot(SoundManager.Instance.alienBuzz2);
+                if (SoundManager.Instance) {
+                    SoundManager.Instance.PlayOneShot(SoundManager.Instance.alienBuzz2);
+                }
             }
 
             yield return new WaitForSeconds(secBeforeSpriteChange);

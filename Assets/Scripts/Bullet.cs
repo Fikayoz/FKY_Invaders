@@ -18,16 +18,16 @@ public class Bullet : MonoBehaviour
     // Use this for initialization
     void Start() {
 
-        // Get reference to the ball Rigidbody
+        // Get reference to the bullet's Rigidbody
         rigidBody = GetComponent<Rigidbody2D>();
 
-        // When the ball is created move it up
+        // When the bullet is created move it up
         // (0,1) at the desired speed
         rigidBody.velocity = Vector2.up * speed;
 
     }
 
-    // Called every time a ball collides with something
+    // Called every time a bullet collides with something
     // the object it hit is passed as a parameter
     void OnTriggerEnter2D(Collider2D col) {
         // If Bullet hits a wall destroy bullet
@@ -49,7 +49,7 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
 
             // Wait .5 seconds and then destroy Alien
-            DestroyObject(col.gameObject, 0.5f);
+            Destroy(col.gameObject, 0.5f);
 
         }
 
